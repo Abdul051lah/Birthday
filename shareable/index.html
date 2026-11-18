@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090d22">
+  <meta name="description" content="A little birthday surprise celebrating six wonderful years.">
+  <title>Happy 6th Birthday! ✨</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #fff;
+      background: #080b1b;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      --gold: #ffd66b;
+      --muted: rgba(255,255,255,.7);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        radial-gradient(ellipse at 18% 12%, rgba(52, 164, 255, .25), transparent 35%),
+        radial-gradient(ellipse at 86% 30%, rgba(138, 104, 255, .22), transparent 34%),
+        linear-gradient(145deg, #050713, #10132e 55%, #090b1c);
+    }
+
+    .page {
+      width: min(940px, calc(100% - 32px));
+      margin: auto;
+      padding: 48px 0 36px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(36px, 8vw, 82px) 24px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 32px;
+      background: rgba(255,255,255,.055);
+      box-shadow: 0 35px 100px rgba(0,0,0,.35);
+      text-align: center;
+    }
+
+    .hero::before,
+    .hero::after {
+      position: absolute;
+      color: rgba(255,255,255,.16);
+      font-size: clamp(48px, 10vw, 90px);
+      pointer-events: none;
+    }
+
+    .hero::before { content: "✦"; top: 16%; left: 9%; }
+    .hero::after { content: "✧"; right: 9%; bottom: 14%; }
+
+    .cake { font-size: clamp(68px, 12vw, 112px); }
+
+    .eyebrow {
+      margin: 18px 0 10px;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .32em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 9vw, 82px);
+      line-height: 1;
+      letter-spacing: -.055em;
+    }
+
+    h1 span {
+      display: block;
+      margin-top: 12px;
+      color: var(--gold);
+      font-size: .62em;
+      letter-spacing: -.025em;
+    }
+
+    .intro {
+      max-width: 590px;
+      margin: 24px auto 30px;
+      color: var(--muted);
+      font-size: clamp(16px, 2.5vw, 20px);
+      line-height: 1.75;
+    }
+
+    button {
+      padding: 15px 25px;
+      border: 0;
+      border-radius: 999px;
+      color: #171224;
+      background: linear-gradient(110deg, #ffd66b, #ffabce);
+      box-shadow: 0 12px 35px rgba(255, 190, 130, .2);
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 42px rgba(255, 190, 130, .32);
+    }
+
+    button:focus-visible {
+      outline: 3px solid #fff;
+      outline-offset: 4px;
+    }
+
+    .wishes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .wish {
+      min-height: 150px;
+      padding: 24px 18px;
+      border: 1px solid rgba(255,255,255,.11);
+      border-radius: 22px;
+      background: rgba(255,255,255,.045);
+      text-align: center;
+    }
+
+    .wish-icon { font-size: 34px; }
+    .wish h2 { margin: 10px 0 7px; font-size: 18px; }
+    .wish p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+
+    footer {
+      padding: 26px 12px 0;
+      color: rgba(255,255,255,.55);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .confetti {
+      position: fixed;
+      z-index: 5;
+      top: -20px;
+      width: 10px;
+      height: 15px;
+      pointer-events: none;
+      animation: fall 2.8s ease-in forwards;
+    }
+
+    @keyframes fall {
+      to { transform: translate(var(--drift), 110vh) rotate(760deg); opacity: 0; }
+    }
+
+    @media (max-width: 680px) {
+      .page { padding-top: 20px; }
+      .hero { border-radius: 24px; }
+      .wishes { grid-template-columns: 1fr; }
+      .wish { min-height: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero" aria-labelledby="birthday-title">
+      <div class="cake" aria-hidden="true">🎂</div>
+      <p class="eyebrow">A little birthday surprise</p>
+      <h1 id="birthday-title">Happy Birthday!<span>Six wonderful years ✨</span></h1>
+      <p class="intro">
+        May your special day be filled with giggles, colorful wishes, sweet treats,
+        and all the things that make you smile. Keep shining, little star!
+      </p>
+      <button id="wish-button" type="button">Make a birthday wish ✨</button>
+    </section>
+
+    <section class="wishes" aria-label="Birthday wishes">
+      <article class="wish">
+        <div class="wish-icon" aria-hidden="true">🌟</div>
+        <h2>Big dreams</h2>
+        <p>May every new adventure bring something wonderful.</p>
+      </article>
+      <article class="wish">
+        <div class="wish-icon" aria-hidden="true">🎈</div>
+        <h2>Lots of laughter</h2>
+        <p>May your days be bright, joyful, and full of fun.</p>
+      </article>
+      <article class="wish">
+        <div class="wish-icon" aria-hidden="true">💖</div>
+        <h2>So much love</h2>
+        <p>May you always feel how special you are.</p>
+      </article>
+    </section>
+
+    <footer style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
+      <div>Sending you the biggest birthday hugs and warmest wishes! 🎉</div>
+      <div style="display: flex; gap: 10px; font-size: 12px;">
+        <a href="../index.html" style="color: var(--gold); text-decoration: none;">🌸 Main Page</a> • 
+        <a href="../dark.html" style="color: #73d9ff; text-decoration: none;">🌙 Dark Theme</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const wishButton = document.getElementById("wish-button");
+    const colors = ["#ffd66b", "#ff8fc7", "#73d9ff", "#b39aff", "#fff"];
+
+    wishButton.addEventListener("click", () => {
+      for (let index = 0; index < 70; index += 1) {
+        const piece = document.createElement("span");
+        piece.className = "confetti";
+        piece.style.left = `${Math.random() * 100}vw`;
+        piece.style.backgroundColor = colors[index % colors.length];
+        piece.style.setProperty("--drift", `${(Math.random() - .5) * 35}vw`);
+        piece.style.animationDelay = `${Math.random() * .8}s`;
+        document.body.appendChild(piece);
+        window.setTimeout(() => piece.remove(), 3600);
+      }
+
+      wishButton.textContent = "Your wish is on its way! 💫";
+    });
+  </script>
+</body>
+</html>

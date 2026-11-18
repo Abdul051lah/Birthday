@@ -1,0 +1,9 @@
+{
+  "name": "birthday-horain",
+  "version": "1.0.0",
+  "description": "Birthday celebration site for Horain Waseem",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
