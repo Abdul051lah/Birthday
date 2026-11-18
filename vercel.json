@@ -1,0 +1,7 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/dark", "destination": "/dark.html" },
+    { "source": "/shareable", "destination": "/shareable/index.html" }
+  ]
+}

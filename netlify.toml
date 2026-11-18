@@ -1,0 +1,12 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/dark"
+  to = "/dark.html"
+  status = 200
+
+[[redirects]]
+  from = "/shareable"
+  to = "/shareable/index.html"
+  status = 200
